@@ -16,7 +16,7 @@ class SearchBar extends React.Component {
 			<form>
 				<input
 					value={this.state.input}
-					text="text"
+					type="text"
 					onChange={this.handleInput}
 				/>
 			</form>
