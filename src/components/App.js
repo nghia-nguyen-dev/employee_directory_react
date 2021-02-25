@@ -6,11 +6,10 @@ class App extends React.Component {
 		return (
 			<div>
 				<header>
+					<h1>Employee Directory</h1>
 					<SearchBar />
 				</header>
-                <main>
-                    
-                </main>
+				<main></main>
 			</div>
 		);
 	}
