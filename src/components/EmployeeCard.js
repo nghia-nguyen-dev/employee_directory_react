@@ -1,9 +1,10 @@
 import React from "react";
 import "../css/EmployeeCard.css";
 
-const EmployeeCard = ({ employeeData, index }) => {
+const EmployeeCard = ({ employeeData, index, handleClick }) => {
+ 
 	return (
-		<div className="employee-card" data-key={index}>
+		<div className="employee-card" data-key={index} onClick={() => handleClick(employeeData)}>
 			<img
 				className="employee-card__avatar"
 				src={employeeData.picture.thumbnail}
@@ -16,6 +17,7 @@ const EmployeeCard = ({ employeeData, index }) => {
 			</div>
 		</div>
 	);
+    
 };
 
 export default EmployeeCard;

@@ -7,6 +7,7 @@ class App extends React.Component {
     state = {
         listOfEmployees: [],
         selectedEmployee: null,
+        modalOpen: false,
     }
 
     componentDidMount() {
@@ -18,6 +19,13 @@ class App extends React.Component {
         .then((res) => this.setState({listOfEmployees: res.data.results}))
     }
 
+    handleClick = (employee) => {
+        this.setState({
+            selectedEmployee: employee,
+            modalOpen: true,
+        })
+    }
+
 	render() {
 		return (
 			<div className="app">
@@ -26,7 +34,7 @@ class App extends React.Component {
 					<SearchBar />
 				</header>
 				<main>
-                    <EmployeeList listOfEmployees={this.state.listOfEmployees}/>
+                    <EmployeeList listOfEmployees={this.state.listOfEmployees} handleClick={this.handleClick}/>
                 </main>
 			</div>
 		);
