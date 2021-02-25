@@ -2,6 +2,7 @@ import React from "react";
 import SearchBar from "./SearchBar";
 import EmployeeList from './EmployeeList';
 import axios from "axios";
+import Modal from './Modal'
 
 class App extends React.Component {
     state = {
@@ -36,6 +37,7 @@ class App extends React.Component {
 				<main>
                     <EmployeeList listOfEmployees={this.state.listOfEmployees} handleClick={this.handleClick}/>
                 </main>
+                <Modal />
 			</div>
 		);
 	}
