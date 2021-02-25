@@ -1,22 +1,24 @@
 import React from "react";
 import SearchBar from "./SearchBar";
+import EmployeeList from './EmployeeList';
 
 class App extends React.Component {
-  
-
 
 	render() {
-        console.log('rendered')
+		console.log("rendered");
 		return (
 			<div>
 				<header>
 					<h1>Employee Directory</h1>
-					<SearchBar/>
+					<SearchBar />
 				</header>
-				<main></main>
+				<main>
+                    <EmployeeList />
+                </main>
 			</div>
 		);
 	}
+
 }
 
 export default App;
