@@ -12,7 +12,7 @@ class App extends React.Component {
     componentDidMount() {
         axios.get(`https://randomuser.me/api`, {
             params: {
-                results: 5
+                results: 25
             }
         })
         .then((res) => this.setState({listOfEmployees: res.data.results}))
@@ -20,7 +20,7 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="app">
 				<header>
 					<h1>Employee Directory</h1>
 					<SearchBar />
