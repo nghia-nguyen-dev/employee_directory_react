@@ -1,6 +1,7 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 import EmployeeList from './EmployeeList';
+import axios from "axios";
 
 class App extends React.Component {
     state = {
@@ -8,8 +9,16 @@ class App extends React.Component {
         selectedEmployee: null,
     }
 
+    componentDidMount() {
+        axios.get(`https://randomuser.me/api`, {
+            params: {
+                results: 5
+            }
+        })
+        .then((res) => this.setState({listOfEmployees: res.data.results}))
+    }
+
 	render() {
-		console.log("rendered");
 		return (
 			<div>
 				<header>
