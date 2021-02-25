@@ -3,6 +3,10 @@ import SearchBar from "./SearchBar";
 import EmployeeList from './EmployeeList';
 
 class App extends React.Component {
+    state = {
+        listOfEmployees: [],
+        selectedEmployee: null,
+    }
 
 	render() {
 		console.log("rendered");
