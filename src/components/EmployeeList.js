@@ -1,10 +1,10 @@
 import React from 'react';
+import EmployeeCard from './EmployeeCard';
 
 const EmployeeList = (props) => {
     return (
-        // Display a list of cards
         <div>
-            
+            {/* {generated list of employees} */}
         </div>
     )
 }
