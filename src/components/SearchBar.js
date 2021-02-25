@@ -11,6 +11,10 @@ class SearchBar extends React.Component {
 		});
 	};
 
+    componentDidUpdate = () => {
+        // Invoke cb from App and pass in input
+    }
+
 	render() {
 		return (
 			<form>

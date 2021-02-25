@@ -40,6 +40,11 @@ class App extends React.Component {
     }
 
     // Function to handle logic of which list of employees to show?
+    
+    // If filteredListOfEmployees is not empty
+        // display that
+        // else display default
+
 
 	render() {
 		return (
