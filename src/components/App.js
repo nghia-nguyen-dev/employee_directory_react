@@ -7,7 +7,7 @@ import Modal from "./Modal";
 class App extends React.Component {
 	state = {
 		listOfEmployees: [],
-        filteredListOfEmployees:[],
+		filteredListOfEmployees: [],
 		selectedEmployee: null,
 		modalOpen: false,
 	};
@@ -31,20 +31,25 @@ class App extends React.Component {
 		});
 	};
 
-    filterEmployees = (input) => {
-        const filtered = this.state.listOfEmployees.filter(employee => {
-            return `${employee.name.first} ${employee.name.last}`.includes(input)
-        })
+	filterEmployees = (input) => {
+		const filtered = this.state.listOfEmployees.filter((employee) => {
+			return `${employee.name.first} ${employee.name.last}`.includes(
+				input
+			);
+		});
 
-        this.setState({filteredListOfEmployees: filtered})
-    }
+		this.setState({ filteredListOfEmployees: filtered });
+	};
 
-    // Function to handle logic of which list of employees to show?
-    
-    // If filteredListOfEmployees is not empty
-        // display that
-        // else display default
-
+	// Function to handle logic of which list of employees to show?
+	renderList() {
+		return this.state.filteredListOfEmployees.length === 0
+			? this.state.listOfEmployees
+			: this.state.filteredListOfEmployees;
+	}
+	// If filteredListOfEmployees is not empty
+	// display that
+	// else display default
 
 	render() {
 		return (
