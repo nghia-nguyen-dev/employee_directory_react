@@ -5,16 +5,20 @@ class SearchBar extends React.Component {
 		input: "",
 	};
 
-    handleInput = (event) => {
-        this.setState({
-            input: event.target.value
-        })
-    }
+	handleInput = (event) => {
+		this.setState({
+			input: event.target.value,
+		});
+	};
 
 	render() {
 		return (
 			<form>
-				<input text="text" onChange={handleInput} />
+				<input
+					value={this.state.input}
+					text="text"
+					onChange={this.handleInput}
+				/>
 			</form>
 		);
 	}
