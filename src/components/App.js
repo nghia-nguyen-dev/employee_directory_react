@@ -32,35 +32,32 @@ class App extends React.Component {
 	};
 
 	filterEmployees = (input) => {
+        
 		const filtered = this.state.listOfEmployees.filter((employee) => {
-			return `${employee.name.first} ${employee.name.last}`.includes(
-				input
-			);
+			const fullName = `${employee.name.first} ${employee.name.last}`.toLocaleLowerCase();
+			return fullName.includes(input);
 		});
 
 		this.setState({ filteredListOfEmployees: filtered });
 	};
 
-	// Function to handle logic of which list of employees to show?
+	// Function to handle logic of which list of employees to show via passing array down as props
 	renderList() {
 		return this.state.filteredListOfEmployees.length === 0
 			? this.state.listOfEmployees
 			: this.state.filteredListOfEmployees;
 	}
-	// If filteredListOfEmployees is not empty
-	// display that
-	// else display default
 
 	render() {
 		return (
 			<div className="app">
 				<header>
 					<h1>Employee Directory</h1>
-					<SearchBar />
+					<SearchBar filterEmployees={this.filterEmployees} />
 				</header>
 				<main>
 					<EmployeeList
-						listOfEmployees={this.state.listOfEmployees}
+						listOfEmployees={this.renderList()}
 						handleClick={this.handleClick}
 					/>
 				</main>

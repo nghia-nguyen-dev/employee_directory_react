@@ -5,15 +5,11 @@ class SearchBar extends React.Component {
 		input: "",
 	};
 
-	handleInput = (event) => {
+	handleInput = (e) => {
 		this.setState({
-			input: event.target.value,
-		});
+			input: e.target.value,
+		}, () => this.props.filterEmployees(this.state.input));
 	};
-
-    componentDidUpdate = () => {
-        // Invoke cb from App and pass in input
-    }
 
 	render() {
 		return (
