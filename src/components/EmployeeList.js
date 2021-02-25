@@ -1,12 +1,14 @@
-import React from 'react';
-import EmployeeCard from './EmployeeCard';
+import React from "react";
+import EmployeeCard from "./EmployeeCard";
 
-const EmployeeList = (props) => {
-    return (
-        <div>
-            {/* {generated list of employees} */}
-        </div>
-    )
-}
+const EmployeeList = ({ listOfEmployees }) => {
+	return (
+		<div>
+			{listOfEmployees.map((employee) => {
+				return <EmployeeCard employeeInfo={employee} />;
+			})}
+		</div>
+	);
+};
 
 export default EmployeeList;

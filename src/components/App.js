@@ -26,7 +26,7 @@ class App extends React.Component {
 					<SearchBar />
 				</header>
 				<main>
-                    <EmployeeList listOfEmployees={this.listOfEmployees}/>
+                    <EmployeeList listOfEmployees={this.state.listOfEmployees}/>
                 </main>
 			</div>
 		);
