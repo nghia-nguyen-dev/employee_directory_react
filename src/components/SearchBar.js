@@ -1,9 +1,9 @@
 import React from 'react';
 
-const SearchBar = (props) => {
+const SearchBar = ({ handleInputChange }) => {
     return (
         <form>
-            <input text="text"></input>
+            <input text="text" onChange={handleInputChange}/>
         </form>
     )
 }
