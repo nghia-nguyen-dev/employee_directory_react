@@ -33,7 +33,7 @@ class App extends React.Component {
 		this.setState({ modalOpen: false });
 	};
 
-	handleClick = (employee, index) => {
+	handleCardClick = (employee, index) => {
 		this.setState({
 			selectedEmployee: {
 				employee,
@@ -83,7 +83,7 @@ class App extends React.Component {
 				<main>
 					<EmployeeList
 						listOfEmployees={this.renderList()}
-						handleClick={this.handleClick}
+						handleCardClick={this.handleCardClick}
 					/>
 				</main>
 				{this.renderModal()}

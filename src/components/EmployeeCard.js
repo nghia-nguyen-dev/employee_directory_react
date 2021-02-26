@@ -1,12 +1,12 @@
 import React from "react";
 import "../css/EmployeeCard.css";
 
-const EmployeeCard = ({ employeeData, index, handleClick }) => {
+const EmployeeCard = ({ employeeData, index, handleCardClick }) => {
 	return (
 		<div
 			className="employee-card"
 			data-key={index}
-			onClick={() => handleClick(employeeData, index)}
+			onClick={() => handleCardClick(employeeData, index)}
 		>
 			<img
 				className="employee-card__avatar"
