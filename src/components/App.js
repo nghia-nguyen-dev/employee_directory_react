@@ -24,24 +24,42 @@ class App extends React.Component {
 					results: 25,
 				},
 			})
-			.then((res) =>
-				this.setState({ listOfEmployees: res.data.results })
+			.then(({ data: { results: employees } }) =>
+				this.setState({
+					listOfEmployees: employees,
+					activeList: employees,
+				})
 			);
 	}
 
 	handleModalClick = (className) => {
-		if (className === "modal__icons__arrows") {
-			console.log(`arrow clicked`);
-            const direction = className.includes('left') ? 'left' : 'right'
-            this.changeCard(direction)
+		if (className.includes("arrows")) {
+			const direction = className.includes("left") ? "left" : "right";
+			this.changeCard(direction);
 		} else {
 			this.setState({ modalOpen: false });
 		}
 	};
 
-    changeCard(direction) {
-
-    }
+	changeCard(direction) {
+		if (direction === "right") {
+			const temp = this.state.selectedEmployee.index + 1;
+			this.setState({
+				selectedEmployee: {
+					employee: this.state.activeList[temp],
+					index: temp,
+				},
+			});
+		} else {
+			const temp = this.state.selectedEmployee.index - 1;
+			this.setState({
+				selectedEmployee: {
+					employee: this.state.activeList[temp],
+					index: temp,
+				},
+			});
+		}
+	}
 
 	handleCardClick = (employee, index) => {
 		this.setState({
@@ -59,11 +77,14 @@ class App extends React.Component {
 			return fullName.includes(input);
 		});
 
-		this.setState({ filteredListOfEmployees: filtered });
+		this.setState({
+			filteredListOfEmployees: filtered,
+			activeList: filtered,
+		});
 	};
 
 	renderList() {
-        // If there are items in filteredList, then show it else show default
+		// If there are items in filteredList, then show it else show default
 		return this.state.filteredListOfEmployees.length === 0
 			? this.state.listOfEmployees
 			: this.state.filteredListOfEmployees;
