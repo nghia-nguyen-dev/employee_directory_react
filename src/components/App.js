@@ -25,6 +25,10 @@ class App extends React.Component {
 			);
 	}
 
+    closeModal = () => {
+        this.setState({modalOpen: false})
+    }
+
 	handleClick = (employee) => {
 		this.setState({
 			selectedEmployee: employee,
@@ -49,7 +53,9 @@ class App extends React.Component {
 	}
 
 	renderModal() {
-		return this.state.modalOpen ? <Modal selectedEmployee={this.state.selectedEmployee}/> : null;
+		return this.state.modalOpen ? (
+			<Modal selectedEmployee={this.state.selectedEmployee} closeModal={this.closeModal}/>
+		) : null;
 	}
 
 	render() {
