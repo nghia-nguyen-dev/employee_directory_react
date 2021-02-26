@@ -1,12 +1,13 @@
 import React from "react";
+import EmployeeCardDetail from "./EmployeeCardDetail";
 import "../css/Modal.css";
 
-export default class extends React.Component {
-	render() {
-		return (
-			<div className="modal">
-				<div className="modal__card"></div>
-			</div>
-		);
-	}
-}
+const Modal = ({ selectedEmployee }) => {
+	return (
+		<div className="modal">
+			<EmployeeCardDetail selectedEmployee={selectedEmployee}/>
+		</div>
+	);
+};
+
+export default Modal;

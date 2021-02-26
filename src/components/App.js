@@ -49,7 +49,7 @@ class App extends React.Component {
 	}
 
 	renderModal() {
-		return this.state.modalOpen ? <Modal /> : null;
+		return this.state.modalOpen ? <Modal selectedEmployee={this.state.selectedEmployee}/> : null;
 	}
 
 	render() {
