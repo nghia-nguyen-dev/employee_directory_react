@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    padding: 30px;
+    background-color: aliceblue;
+}
+
+header {
+    margin-bottom: 55px;
+}
+
+form {
+    margin-top: 10px;
+}
+
+input {
+    height: 38px;
+    width: 765px;
+}
+
+header h1 {
+    color: rgb(103, 125, 153);
+    opacity: .3;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.app {
+    max-width: 1200px;
+    margin: 0 auto;
+}

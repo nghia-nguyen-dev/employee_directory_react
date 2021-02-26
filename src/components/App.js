@@ -3,6 +3,7 @@ import SearchBar from "./SearchBar";
 import EmployeeList from "./EmployeeList";
 import axios from "axios";
 import Modal from "./Modal";
+import '../css/App.css'
 
 class App extends React.Component {
 	state = {
