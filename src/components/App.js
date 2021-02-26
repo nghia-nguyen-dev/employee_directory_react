@@ -10,10 +10,10 @@ class App extends React.Component {
 		listOfEmployees: [],
 		filteredListOfEmployees: [],
 		selectedEmployee: {
-            employee: null,
-            index: null,
-        },
-        activeList: null,
+			employee: null,
+			index: null,
+		},
+		activeList: null,
 		modalOpen: false,
 	};
 
@@ -29,26 +29,24 @@ class App extends React.Component {
 			);
 	}
 
-    closeModal = () => {
-        this.setState({modalOpen: false})
-    }
+	handleModalClick = () => {
+		this.setState({ modalOpen: false });
+	};
 
 	handleClick = (employee, index) => {
 		this.setState({
 			selectedEmployee: {
-                employee,
-                index
-            },
+				employee,
+				index,
+			},
 			modalOpen: true,
 		});
 	};
 
-    handleArrowClick = (direction) => {
-        // If left subtract if right add
-
-        // Use data key to traverse employee list
-
-    }
+	handleArrowClick = (direction) => {
+		// If left subtract if right add
+		// Use data key to traverse employee list
+	};
 
 	filterEmployees = (input) => {
 		const filtered = this.state.listOfEmployees.filter((employee) => {
@@ -68,7 +66,10 @@ class App extends React.Component {
 
 	renderModal() {
 		return this.state.modalOpen ? (
-			<Modal selectedEmployee={this.state.selectedEmployee} closeModal={this.closeModal}/>
+			<Modal
+				selectedEmployee={this.state.selectedEmployee}
+				handleModalClick={this.handleModalClick}
+			/>
 		) : null;
 	}
 
