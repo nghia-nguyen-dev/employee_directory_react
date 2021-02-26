@@ -30,13 +30,18 @@ class App extends React.Component {
 	}
 
 	handleModalClick = (className) => {
-        // console.log(className)
 		if (className === "modal__icons__arrows") {
 			console.log(`arrow clicked`);
+            const direction = className.includes('left') ? 'left' : 'right'
+            this.changeCard(direction)
 		} else {
 			this.setState({ modalOpen: false });
 		}
 	};
+
+    changeCard(direction) {
+
+    }
 
 	handleCardClick = (employee, index) => {
 		this.setState({
@@ -48,11 +53,6 @@ class App extends React.Component {
 		});
 	};
 
-	handleArrowClick = (direction) => {
-		// If left subtract if right add
-		// Use data key to traverse employee list
-	};
-
 	filterEmployees = (input) => {
 		const filtered = this.state.listOfEmployees.filter((employee) => {
 			const fullName = `${employee.name.first} ${employee.name.last}`.toLocaleLowerCase();
@@ -62,8 +62,8 @@ class App extends React.Component {
 		this.setState({ filteredListOfEmployees: filtered });
 	};
 
-	// Function to handle logic of which list of employees to show via passing array down as props
 	renderList() {
+        // If there are items in filteredList, then show it else show default
 		return this.state.filteredListOfEmployees.length === 0
 			? this.state.listOfEmployees
 			: this.state.filteredListOfEmployees;
