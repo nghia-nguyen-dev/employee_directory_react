@@ -49,6 +49,10 @@ class App extends React.Component {
 			: this.state.filteredListOfEmployees;
 	}
 
+    renderModal() {
+       return  this.state.modalOpen ? <Modal/> : null
+    }
+
 	render() {
 		return (
 			<div className="app">
@@ -62,7 +66,7 @@ class App extends React.Component {
 						handleClick={this.handleClick}
 					/>
 				</main>
-				<Modal />
+				{this.renderModal()}
 			</div>
 		);
 	}
