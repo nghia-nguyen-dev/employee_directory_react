@@ -29,8 +29,13 @@ class App extends React.Component {
 			);
 	}
 
-	handleModalClick = () => {
-		this.setState({ modalOpen: false });
+	handleModalClick = (className) => {
+        // console.log(className)
+		if (className === "modal__icons__arrows") {
+			console.log(`arrow clicked`);
+		} else {
+			this.setState({ modalOpen: false });
+		}
 	};
 
 	handleCardClick = (employee, index) => {

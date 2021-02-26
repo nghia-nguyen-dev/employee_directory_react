@@ -6,7 +6,7 @@ import rightArrow from "../icons/right_arrow.png";
 
 const Modal = ({ selectedEmployee, handleModalClick }) => {
 	return (
-		<div className="modal" onClick={handleModalClick}>
+		<div className="modal" onClick={(e) => handleModalClick(e.target.className)}>
 			<EmployeeCardDetail selectedEmployee={selectedEmployee} />
 			<div className="modal__icons">
 				<img className="modal__icons__arrows" src={leftArrow} />
