@@ -9,7 +9,11 @@ class App extends React.Component {
 	state = {
 		listOfEmployees: [],
 		filteredListOfEmployees: [],
-		selectedEmployee: null,
+		selectedEmployee: {
+            employee: null,
+            index: null,
+        },
+        activeList: null,
 		modalOpen: false,
 	};
 
@@ -29,12 +33,22 @@ class App extends React.Component {
         this.setState({modalOpen: false})
     }
 
-	handleClick = (employee) => {
+	handleClick = (employee, index) => {
 		this.setState({
-			selectedEmployee: employee,
+			selectedEmployee: {
+                employee,
+                index
+            },
 			modalOpen: true,
 		});
 	};
+
+    handleArrowClick = (direction) => {
+        // If left subtract if right add
+
+        // Use data key to traverse employee list
+
+    }
 
 	filterEmployees = (input) => {
 		const filtered = this.state.listOfEmployees.filter((employee) => {

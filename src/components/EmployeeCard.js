@@ -6,7 +6,7 @@ const EmployeeCard = ({ employeeData, index, handleClick }) => {
 		<div
 			className="employee-card"
 			data-key={index}
-			onClick={() => handleClick(employeeData)}
+			onClick={() => handleClick(employeeData, index)}
 		>
 			<img
 				className="employee-card__avatar"
