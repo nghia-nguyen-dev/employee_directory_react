@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/EmployeeCardDetail.css";
 
+
 const EmployeeCardDetail = ({ selectedEmployee: {phone,email,location,name,picture} }) => {
     // console.log(selectedEmployee)
 	return (
