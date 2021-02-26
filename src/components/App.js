@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 import EmployeeList from "./EmployeeList";
 import axios from "axios";
 import Modal from "./Modal";
-import '../css/App.css'
+import "../css/App.css";
 
 class App extends React.Component {
 	state = {
@@ -33,7 +33,6 @@ class App extends React.Component {
 	};
 
 	filterEmployees = (input) => {
-        
 		const filtered = this.state.listOfEmployees.filter((employee) => {
 			const fullName = `${employee.name.first} ${employee.name.last}`.toLocaleLowerCase();
 			return fullName.includes(input);
@@ -49,9 +48,9 @@ class App extends React.Component {
 			: this.state.filteredListOfEmployees;
 	}
 
-    renderModal() {
-       return  this.state.modalOpen ? <Modal/> : null
-    }
+	renderModal() {
+		return this.state.modalOpen ? <Modal /> : null;
+	}
 
 	render() {
 		return (
