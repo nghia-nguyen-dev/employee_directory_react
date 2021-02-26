@@ -1,0 +1,8 @@
+.modal__bg {
+    background-color: #0000008f;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
