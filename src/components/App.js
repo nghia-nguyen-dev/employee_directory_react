@@ -17,6 +17,7 @@ class App extends React.Component {
 		modalOpen: false,
 	};
 
+	// Initial data fetching
 	componentDidMount() {
 		axios
 			.get(`https://randomuser.me/api`, {
@@ -42,23 +43,18 @@ class App extends React.Component {
 	};
 
 	changeCard(direction) {
-		if (direction === "right") {
-			const temp = this.state.selectedEmployee.index + 1;
-			this.setState({
-				selectedEmployee: {
-					employee: this.state.activeList[temp],
-					index: temp,
-				},
-			});
-		} else {
-			const temp = this.state.selectedEmployee.index - 1;
-			this.setState({
-				selectedEmployee: {
-					employee: this.state.activeList[temp],
-					index: temp,
-				},
-			});
-		}
+		direction === "right"
+			? this.updateSelectedEmployee(this.state.selectedEmployee.index + 1)
+			: this.updateSelectedEmployee(this.state.selectedEmployee.index - 1)
+	}
+
+	updateSelectedEmployee(index) {
+		this.setState({
+			selectedEmployee: {
+				employee: this.state.activeList[index],
+				index: index,
+			},
+		});
 	}
 
 	handleCardClick = (employee, index) => {
@@ -84,7 +80,6 @@ class App extends React.Component {
 	};
 
 	renderList() {
-		// If there are items in filteredList, then show it else show default
 		return this.state.filteredListOfEmployees.length === 0
 			? this.state.listOfEmployees
 			: this.state.filteredListOfEmployees;
