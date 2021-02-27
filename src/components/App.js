@@ -22,7 +22,7 @@ class App extends React.Component {
 		axios
 			.get(`https://randomuser.me/api`, {
 				params: {
-					results: 25,
+					results: 24,
 				},
 			})
 			.then(({ data: { results: employees } }) =>
@@ -30,7 +30,7 @@ class App extends React.Component {
 					listOfEmployees: employees,
 					activeList: employees,
 				})
-			);
+			)
 	}
 
 	// EVENT HANDLERS --------------------------------------------------------
