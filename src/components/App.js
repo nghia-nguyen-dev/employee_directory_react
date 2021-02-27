@@ -35,9 +35,9 @@ class App extends React.Component {
 
 	handleModalClick = (className) => {
 		if (className.includes("arrows")) {
-			const direction = className.includes("left") ? "left" : "right";
-			this.changeCard(direction);
+			this.changeCard(className.includes("left") ? "left" : "right");
 		} else {
+			// close modal
 			this.setState({ modalOpen: false });
 		}
 	};
@@ -45,10 +45,15 @@ class App extends React.Component {
 	changeCard(direction) {
 		direction === "right"
 			? this.updateSelectedEmployee(this.state.selectedEmployee.index + 1)
-			: this.updateSelectedEmployee(this.state.selectedEmployee.index - 1)
+			: this.updateSelectedEmployee(
+					this.state.selectedEmployee.index - 1
+			  );
 	}
 
 	updateSelectedEmployee(index) {
+		if (index < 0 || index > this.state.activeList.length - 1) {
+			return;
+		}
 		this.setState({
 			selectedEmployee: {
 				employee: this.state.activeList[index],
