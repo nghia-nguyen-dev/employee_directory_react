@@ -1,0 +1,2 @@
+1. Deploy react project
+2. Update readme
