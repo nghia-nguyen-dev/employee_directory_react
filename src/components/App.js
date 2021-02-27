@@ -17,7 +17,7 @@ class App extends React.Component {
 		modalOpen: false,
 	};
 
-	// Initial data fetching
+	// DATA FETCHING
 	componentDidMount() {
 		axios
 			.get(`https://randomuser.me/api`, {
@@ -33,13 +33,36 @@ class App extends React.Component {
 			);
 	}
 
+	// EVENT HANDLERS --------------------------------------------------------
 	handleModalClick = (className) => {
 		if (className.includes("arrows")) {
 			this.changeCard(className.includes("left") ? "left" : "right");
 		} else {
-			// close modal
 			this.setState({ modalOpen: false });
 		}
+	};
+
+	handleCardClick = (employee, index) => {
+		this.setState({
+			selectedEmployee: {
+				employee,
+				index,
+			},
+			modalOpen: true,
+		});
+	};
+
+	// UPDATE STATE --------------------------------------------------------
+	filterEmployees = (input) => {
+		const filtered = this.state.listOfEmployees.filter((employee) => {
+			const fullName = `${employee.name.first} ${employee.name.last}`.toLocaleLowerCase();
+			return fullName.includes(input);
+		});
+
+		this.setState({
+			filteredListOfEmployees: filtered,
+			activeList: filtered,
+		});
 	};
 
 	changeCard(direction) {
@@ -62,28 +85,7 @@ class App extends React.Component {
 		});
 	}
 
-	handleCardClick = (employee, index) => {
-		this.setState({
-			selectedEmployee: {
-				employee,
-				index,
-			},
-			modalOpen: true,
-		});
-	};
-
-	filterEmployees = (input) => {
-		const filtered = this.state.listOfEmployees.filter((employee) => {
-			const fullName = `${employee.name.first} ${employee.name.last}`.toLocaleLowerCase();
-			return fullName.includes(input);
-		});
-
-		this.setState({
-			filteredListOfEmployees: filtered,
-			activeList: filtered,
-		});
-	};
-
+	// CONDITIONAL RENDERING --------------------------------------------------------
 	renderList() {
 		return this.state.filteredListOfEmployees.length === 0
 			? this.state.listOfEmployees
